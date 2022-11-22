@@ -1,8 +1,14 @@
-import css from './Profile.module.css'
+import css from './Profile.module.css';
 import PropTypes from 'prop-types';
-const Profile = ({username = "User Name", tag, location, avatar, stats: { followers, views, likes }}) => {
-    return (
-         <div className={css.profile}>
+const Profile = ({
+  username = 'User Name',
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => {
+  return (
+    <div className={css.profile}>
       <div className={css.description}>
         <img
           src={avatar}
@@ -31,8 +37,8 @@ const Profile = ({username = "User Name", tag, location, avatar, stats: { follow
         </li>
       </ul>
     </div>
-    )
-}
+  );
+};
 
 Profile.prototype = {
   username: PropTypes.string.isRequired,
@@ -40,9 +46,9 @@ Profile.prototype = {
   location: PropTypes.string.isRequired,
   avatar: PropTypes.string,
   stats: PropTypes.shape({
-    followers: PropTypes.number,
-    views: PropTypes.number,
-    likes: PropTypes.number,
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
   }),
 };
 
